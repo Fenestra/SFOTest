@@ -226,11 +226,11 @@ class LayoutBandTests extends FunSuite with BeforeAndAfter {
     println("topband right was "+loc)
     assert(loc.right.equals("7.5in"))
   }
-  test ("topband has bottom of 3.5") {
+  test ("topband has bottom of 3") {
     pm.computeDimensions
     val loc = pm.findLocation("topband")
     println("topband bottom was "+loc)
-    assert(loc.bottom.equals("3.5in"))
+    assert(loc.bottom.equals("3in"))
   }
 /*
       <sfo:area stacking="left" width="0.2in" content-name="1.4"/>
