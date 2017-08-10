@@ -19,14 +19,9 @@ class AreaTests extends FunSuite with BeforeAndAfter {
 
   before {
     area = Area("top", null, Length.dimension("1in"), null, Length.dimension(".15in"), "toptest")
-//    area = Area("top", null, Length.dimension("1in"), null, Length.dimension(".15in"), "toptest")
     parLoc = Location.create("1in", "1in", "6in", "2in")
   }
-/*
-  test("new area has empty location") {
-    assert(area.location.isEmpty)
-  }
-*/
+
   test("area after computing starts at 1,1") {
     area.computeDimensions(parLoc)
     println(s"area after computing starts ${area.location}")
@@ -42,6 +37,7 @@ class AreaTests extends FunSuite with BeforeAndAfter {
   }
 
 }
+
 /*
 region left, top, right, botton, width, height, transform, isback
 findLoc
@@ -92,10 +88,8 @@ class RegionTests extends FunSuite with BeforeAndAfter {
     assert(region.location.bottom.equals("7.0in"))
   }
 
-  // mark that you want a test here in the future
-//  test ("test pizza pricing") (pending)
-
 }
+
 /*
 left="2937053fu" top="0fu" width="56538266fu" height="3671316fu">
   <sfo:area height="3671316fu" stacking="top" content-name="null header"/></sfo:region>
@@ -143,14 +137,9 @@ class PageMasterTests extends FunSuite with BeforeAndAfter {
     assert(pm.location.right.equals("8.5in"))
   }
 
-  // mark that you want a test here in the future
   test("pagemaster has largearea") {
     pm.computeDimensions
     var loc: Location = null
-    //  pm.findLocation("largearea") match {
-    //    case Some[Location](f) => loc = f
-    //    case None =>
-    //  }
     loc = pm.findLocation("largearea")
     println("largearea was " + loc)
     assert(loc != null)
@@ -168,7 +157,8 @@ class PageMasterTests extends FunSuite with BeforeAndAfter {
       <sfo:area stacking="left" width="0.6in" content-name="thirdbox">
         <sfo:area stacking="top" height="1.0in" content-name="east-bracket"/>
         <sfo:area stacking="top" height="0.3in" content-name="east-bracket-caption"/>
-      </sfo:area>*/
+      </sfo:area>
+      */
 class LayoutBandTests extends FunSuite with BeforeAndAfter {
   var pm : PageMaster = _
   var content : Region = _
@@ -232,22 +222,4 @@ class LayoutBandTests extends FunSuite with BeforeAndAfter {
     println("topband bottom was "+loc)
     assert(loc.bottom.equals("3in"))
   }
-/*
-      <sfo:area stacking="left" width="0.2in" content-name="1.4"/>
-      <sfo:area stacking="left" width="0.6in">
-        <sfo:area stacking="top" height="1.0in" content-name="north-bracket"/>
-        <sfo:area stacking="top" height="0.3in" content-name="north-bracket-caption"/>
-      </sfo:area>
-      <sfo:area stacking="left" width="0.2in"/>
-      <sfo:area stacking="left" width="0.6in">
-        <sfo:area stacking="top" height="1.0in" content-name="west-bracket"/>
-        <sfo:area stacking="top" height="0.3in" content-name="west-bracket-caption"/>
-      </sfo:area>
-      <sfo:area stacking="left" width="0.2in"/>
-      <sfo:area stacking="left" width="0.6in">
-        <sfo:area stacking="top" height="1.0in" content-name="south-bracket"/>
-        <sfo:area stacking="top" height="0.3in" content-name="south-bracket-caption"/>
-      </sfo:area>
-    </sfo:area>
-*/
 }

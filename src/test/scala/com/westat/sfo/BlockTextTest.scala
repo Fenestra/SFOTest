@@ -30,6 +30,7 @@ class LineListTests extends FunSuite with BeforeAndAfter {
       assert(area.location.isEmpty)
     }
   */
+
   test("2.5in wide line should have 2 lines") {
     println(s"2.5in line has ${lineList.length} lines")
     assert(lineList.length.equals(2))
@@ -44,12 +45,4 @@ class LineListTests extends FunSuite with BeforeAndAfter {
     println(s"8in line has ${lineList.length} lines")
     assert(lineList.length.equals(1))
   }
-/*
- pending test ("area after computing ends at 7,1.15") {
-    area.computeDimensions(parLoc)
-    println(s"area after computing ends is ${area.location}")
-    assert(area.location.right.equals("7.0in"))
-    assert(area.location.bottom.equals("1.15in"))
-  }
-*/
 }
